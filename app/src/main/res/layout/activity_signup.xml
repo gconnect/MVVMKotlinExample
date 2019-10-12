@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.pdl.mvvmkotlinexample.ui.auth.AuthViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#fefefe"
+        android:id="@+id/root_layout"
+        tools:context=".ui.auth.SignupActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/heading"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="Kotlin MVVM"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:text="@={viewmodel.name}"
+            android:id="@+id/name"
+            android:padding="16dp"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:text="@={viewmodel.email}"
+            android:id="@+id/email"
+            android:padding="16dp"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:text="@={viewmodel.password}"
+            android:id="@+id/password"
+            android:padding="16dp"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:text="@={viewmodel.confirmPassword}"
+            android:id="@+id/confirmPassword"
+            android:padding="16dp"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm password"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/forgetPassword"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:text="Forget Password?"/>
+
+        <Button
+            android:onClick="@{viewmodel::onSignupButtonClick}"
+            android:id="@+id/signupBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:padding="16dp"
+            android:layout_gravity="center"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:onClick="@{viewmodel::onLogin}"
+            android:id="@+id/login"
+            android:layout_margin="16dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#0078D7"
+            android:text="Already have an account Login here"/>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/progress_bar"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
